@@ -1,0 +1,142 @@
+/* Reseta as margens e paddings padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo geral do body */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Estilo do cabeçalho */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: #007acc;
+}
+
+header p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Container dos flashcards */
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Estilo dos flashcards */
+.cartao {
+    background-color: #fff;
+    border-radius: 8px;
+    width: 220px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Efeito de hover nos cards */
+.cartao:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Título da pergunta */
+.cartao__conteudo h3 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #007acc;
+    margin-bottom: 10px;
+}
+
+/* Texto da pergunta */
+.cartao__conteudo__pergunta p {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Resposta, inicialmente oculta */
+.cartao__conteudo__resposta {
+    display: none;
+    font-size: 1rem;
+    color: #444;
+    margin-top: 10px;
+}
+
+/* Quando o cartão estiver ativo (resposta visível) */
+.cartao.active .cartao__conteudo__resposta {
+    display: block;
+}
+
+/* Transição suave da resposta */
+.cartao__conteudo__resposta {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.cartao.active .cartao__conteudo__resposta {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Estilo do rodapé */
+footer {
+    margin-top: 40px;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+}
+
+footer p {
+    font-size: 0.9rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cartao {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .cartao {
+        width: 100%;
+    }
+
+    footer p {
+        font-size: 0.8rem;
+    }
+}
